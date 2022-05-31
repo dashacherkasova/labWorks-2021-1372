@@ -95,6 +95,15 @@ void MainWindow::set_name_cell(vector <int> name_cell,QString * name_cell_str_)
 {
     for (int i=0;i<size*size;i++)
     {
+        if (name_cell[i]>=100)
+        {
+            char first=name_cell[i]/100+'0';
+            char second=name_cell[i]/10%10+'0';
+            char second_one=name_cell[i]%10+'0';
+            name_cell_str_[i]=first;
+            name_cell_str_[i].append(second);
+            name_cell_str_[i].append(second_one);
+        }
         if (name_cell[i]>=10) //в аски таблице нет двузначных чисел, поэтому мы создаем их искусственно
         {
             char first=name_cell[i]/10+'0';
